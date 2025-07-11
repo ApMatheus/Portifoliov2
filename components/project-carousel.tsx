@@ -53,24 +53,17 @@ export function ProjectCarousel({ projects }: { projects: ProjectItem[] }) {
         >
           {projects.map((project, index) => (
             <div key={index} className="w-full flex-shrink-0">
-              <div className="grid md:grid-cols-2 gap-0 min-h-[400px]">
+              <div className="flex flex-col gap-0 min-h-[400px] h-full">
                 {/* Project Image */}
                 <div className="relative overflow-hidden">
                   <Image
                     src={project.img.url || "/placeholder.svg"}
                     alt={project.title}
-                    width={600}
-                    height={400}
-                    className="w-full h-full object-cover"
+                    width={1536}
+                    height={1024}
+                    className="object-contain w-full h-full"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/40 to-transparent md:bg-gradient-to-r md:from-transparent md:via-slate-900/20 md:to-slate-900/80" />
-
-                  {/* Project number indicator */}
-                  <div className="absolute top-4 left-4 w-12 h-12 bg-cyan-500/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-cyan-400/30">
-                    <span className="text-cyan-400 font-bold text-lg">{index + 1}</span>
-                  </div>
                 </div>
-
                 {/* Project Content */}
                 <div className="p-8 flex flex-col justify-center">
                   <div className="mb-4">

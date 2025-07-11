@@ -3,7 +3,7 @@
 import { AnimatedCard } from "../animated-card";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
 import { Badge } from "../ui/badge";
-import { Code } from "lucide-react";
+import { Code, Terminal } from "lucide-react";
 import { Timeline } from "@/types/portifolio";
 
 export default function Experience({ experiences }: { experiences: Timeline }) {
@@ -32,7 +32,7 @@ export default function Experience({ experiences }: { experiences: Timeline }) {
 
                   {/* Content Card */}
                   <div className={`w-full md:w-5/12 ml-16 md:ml-0 ${index % 2 === 0 ? "md:mr-8" : "md:ml-8"}`}>
-                    <Card className="bg-slate-800/50 border-cyan-500/20 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105 relative">
+                    <Card className="bg-slate-800/50 border-cyan-500/20 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105 relative py-5">
                       {/* Arrow pointing to timeline */}
                       <div
                         className={`absolute top-6 w-0 h-0 ${index % 2 === 0
@@ -45,16 +45,16 @@ export default function Experience({ experiences }: { experiences: Timeline }) {
                         <div className="flex items-start justify-between">
                           <div className="flex-1">
                             <Badge variant="outline" className="border-cyan-400 text-cyan-400 mb-3 text-xs">
-                              {exp.start_date}
+                              {exp.start_date} {exp.end_date && `- ${exp.end_date}`}
                             </Badge>
                             <CardTitle className="text-white text-xl mb-2">{exp.title}</CardTitle>
                             <CardDescription className="text-cyan-400 font-semibold text-lg flex items-center gap-2">
                               <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
-                              {exp.end_date}
+                              {exp.sub_title}
                             </CardDescription>
                           </div>
                           <div className="text-cyan-400 opacity-60">
-                            <Code className="w-6 h-6" />
+                            <Terminal className="w-6 h-6" />
                           </div>
                         </div>
                       </CardHeader>
@@ -79,7 +79,7 @@ export default function Experience({ experiences }: { experiences: Timeline }) {
 
                   {/* Year indicator on opposite side */}
                   <div className={`hidden md:block w-5/12 ${index % 2 === 0 ? "text-right pr-8" : "text-left pl-8"}`}>
-                    <div className="text-4xl font-bold text-cyan-400/30">{exp.start_date.split(" - ")[0]}</div>
+                    <div className="text-4xl font-bold text-cyan-400/30">{exp.start_date.split("-")[0]}</div>
                   </div>
                 </div>
               </AnimatedCard>
