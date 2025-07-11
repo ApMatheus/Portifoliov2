@@ -1,13 +1,10 @@
-"use client"
-
-import { Github, Linkedin } from "lucide-react";
-
 import { Mail } from "lucide-react";
 
-import { Link } from "lucide-react";
 import { Button } from "../ui/button";
+import { Social } from "@/types/portifolio";
+import Socials from "../ui/social";
 
-export default function Footer() {
+export default function Footer({ social }: { social: Social }) {
   return (
     <footer id="contact" className="py-12 px-4 border-t border-cyan-500/20 pt-32 relative z-10">
       <div className="max-w-4xl mx-auto text-center">
@@ -24,15 +21,7 @@ export default function Footer() {
         </div>
 
         <div className="flex justify-center gap-6 mb-8">
-          <Link href="#" className="text-slate-400 hover:text-cyan-400 transition-colors">
-            <Github className="w-6 h-6" />
-          </Link>
-          <Link href="#" className="text-slate-400 hover:text-cyan-400 transition-colors">
-            <Linkedin className="w-6 h-6" />
-          </Link>
-          <Link href="#" className="text-slate-400 hover:text-cyan-400 transition-colors">
-            <Mail className="w-6 h-6" />
-          </Link>
+        <Socials social={social} />
         </div>
 
         <div className="border-t border-slate-700 pt-8">

@@ -45,7 +45,7 @@ export default function Hero({ hero, social }: { hero: Hero, social: Social }) {
             <Button
               size="lg"
               variant="outline"
-              className="border-cyan-400 text-cyan-400 hover:bg-cyan-400/10 bg-transparent w-full sm:w-auto"
+              className="border-cyan-400 text-cyan-400 hover:bg-cyan-400/10 bg-transparent w-full sm:w-auto hover:text-white"
             >
               Entrar em Contato
             </Button>

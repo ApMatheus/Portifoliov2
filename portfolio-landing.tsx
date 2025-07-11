@@ -32,7 +32,7 @@ export default function Component({ props }: { props: Home }) {
 
       {/* Experience Section */}
       <Experience experiences={timeline} />
-      <Footer />
+      <Footer social={contact as Social} />
     </div>
   )
 }
