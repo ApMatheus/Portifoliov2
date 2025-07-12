@@ -61,7 +61,7 @@ export default function About({ about, githubData }: { about: About, githubData:
                 <div className="grid grid-cols-3 gap-4 mt-8">
                   {[
                     { value: "4+", label: "Anos de Experiência" },
-                    { value: githubData, label: "Contribuições no ultimo ano" },
+                    { value: githubData.toString(), label: "Contribuições no ultimo ano" },
                     { value: "10+", label: "Tecnologias" },
                   ].map((stat, index) => (
                     <AnimatedCard key={index} direction="scale" delay={600 + index * 100}>

@@ -97,7 +97,7 @@ export default function Experience({ experiences, githubData }: { experiences: T
           {[
             { value: "4+", label: "Anos de Experiência" },
             { value: "3", label: "Empresas" },
-            { value: githubData, label: "Contribuições no ultimo ano" },
+            { value: githubData.toString(), label: "Contribuições no ultimo ano" },
           ].map((highlight, index) => (
             <AnimatedCard key={index} direction="scale" delay={index * 150}>
               <Card className="bg-slate-800/30 border-cyan-500/20 text-center p-6">
