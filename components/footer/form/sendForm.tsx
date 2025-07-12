@@ -1,7 +1,9 @@
 "use client"
+import { Loader2 } from 'lucide-react';
 import React, { useState } from 'react';
 
 function Formulario() {
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     nome: '',
     email: '',
@@ -17,6 +19,13 @@ function Formulario() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsLoading(true);
+
+    if (formData.nome === '' || formData.email === '' || formData.mensagem === '') {
+      alert('Por favor, preencha todos os campos');
+      setIsLoading(false);
+      return;
+    }
 
     try {
       const response = await fetch(`/api/sheets`, {
@@ -37,6 +46,8 @@ function Formulario() {
 
     } catch (error) {
       console.error('Erro ao enviar:', error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -66,8 +77,9 @@ function Formulario() {
           onChange={handleChange}
           placeholder="Mensagem"
         />
-        <button className='bg-cyan-500 text-white rounded-md p-2 w-full font-semibold cursor-pointer h-10 transition-all duration-300 mt-2' type="submit">
-          Enviar</button>
+        <button className='bg-cyan-500 text-white rounded-md p-2 w-full font-semibold cursor-pointer h-10 transition-all duration-300 mt-2 flex items-center justify-center gap-2' type="submit">
+          {isLoading ? <Loader2 size={20} className='animate-spin' /> : 'Enviar'}
+        </button>
       </form>
     </div>
   );

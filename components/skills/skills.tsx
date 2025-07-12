@@ -14,10 +14,10 @@ export default function Skills({ skills }: { skills: Stacks }) {
         <AnimatedCard direction="up">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">{title}</h2>
         </AnimatedCard>
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-5 md:gap-6 gap-3">
           {stack.map((skill, index) => (
             <AnimatedCard key={index} direction="scale" delay={index * 100}>
-              <Card className="bg-slate-800/50 border-cyan-500/20 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105">
+              <Card className="bg-slate-800/50 border-cyan-500/20 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105 h-full">
                 <CardContent className="p-6 text-center">
                   <div className="text-cyan-400 mb-3 flex justify-center">
                     <Image src={skill.icon.url} width={80} height={80} loading="lazy" alt={skill.title} className="rounded-lg object-cover" />

@@ -3,7 +3,7 @@
 import { AnimatedCard } from "../animated-card";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
 import { Badge } from "../ui/badge";
-import { Terminal } from "lucide-react";
+import { Code, Github, Terminal, Timer } from "lucide-react";
 import { Timeline } from "@/types/portifolio";
 
 export default function Experience({ experiences, githubData }: { experiences: Timeline, githubData: number }) {
@@ -101,7 +101,12 @@ export default function Experience({ experiences, githubData }: { experiences: T
           ].map((highlight, index) => (
             <AnimatedCard key={index} direction="scale" delay={index * 150}>
               <Card className="bg-slate-800/30 border-cyan-500/20 text-center p-6">
-                <div className="text-3xl font-bold text-cyan-400 mb-2">{highlight.value}</div>
+                <div className="flex items-center justify-center gap-2">
+                  {index === 0 && <Timer size={24} className="text-cyan-400" />}
+                  {index === 1 && <Github size={24} className="text-cyan-400" />}
+                  {index === 2 && <Code size={24} className="text-cyan-400" />}
+                  <div className="text-3xl font-bold text-cyan-400">{highlight.value}</div>
+                </div>
                 <div className="text-slate-300">{highlight.label}</div>
               </Card>
             </AnimatedCard>

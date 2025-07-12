@@ -3,6 +3,7 @@
 import { AnimatedCard } from "../animated-card";
 import Image from "next/image";
 import type { About } from "@/types/portifolio";
+import { Code, Github, Timer } from "lucide-react";
 
 export default function About({ about, githubData }: { about: About, githubData: number }) {
   const { title, img, alt, title_description, description } = about;
@@ -58,15 +59,20 @@ export default function About({ about, githubData }: { about: About, githubData:
                 </style>
 
                 {/* Stats */}
-                <div className="grid grid-cols-3 gap-4 mt-8">
+                <div className="grid grid-rows-3 lg:grid-rows-1 lg:grid-cols-3 gap-4 mt-8">
                   {[
                     { value: "4+", label: "Anos de Experiência" },
                     { value: githubData.toString(), label: "Contribuições no ultimo ano" },
                     { value: "10+", label: "Tecnologias" },
                   ].map((stat, index) => (
                     <AnimatedCard key={index} direction="scale" delay={600 + index * 100}>
-                      <div className="text-center p-4 bg-slate-700/30 rounded-lg border border-cyan-500/10 h-full">
-                        <div className="text-2xl font-bold text-cyan-400">{stat.value}</div>
+                      <div className="text-center p-4 bg-slate-700/30 rounded-lg border border-cyan-500/10 h-full flex flex-col justify-center items-center gap-2">
+                        <div className="flex items-center justify-center gap-2">
+                          {index === 0 && <Timer size={24} className="text-cyan-400" />}
+                          {index === 1 && <Github size={24} className="text-cyan-400" />}
+                          {index === 2 && <Code size={24} className="text-cyan-400" />}
+                          <div className="text-2xl font-bold text-cyan-400">{stat.value}</div>
+                        </div>
                         <div className="text-sm text-slate-400">{stat.label}</div>
                       </div>
                     </AnimatedCard>
