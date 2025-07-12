@@ -77,3 +77,8 @@ export interface Home {
     };
   };
 }
+
+
+export interface GitHubData {
+  data: number
+}

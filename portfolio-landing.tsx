@@ -1,7 +1,7 @@
 
 import { AnimatedBackground } from "./components/animated-background"
 import { FloatingElements } from "./components/floating-elements"
-import { Home, Social } from "@/types/portifolio"
+import {  Home, Social } from "@/types/portifolio"
 import Hero from "./components/hero/hero"
 import About from "./components/about/about"
 import Skills from "./components/skills/skills"
@@ -9,7 +9,7 @@ import Projects from "./components/projects/projects"
 import Experience from "./components/experience/experience"
 import Footer from "./components/footer/footer"
 
-export default function Component({ props }: { props: Home }) {
+export default function Component({ props, githubData }: { props: Home, githubData: number }) {
   const { hero, about, stacks, projects, timeline, contact } = props.object.metadata
 
   return (
@@ -22,7 +22,7 @@ export default function Component({ props }: { props: Home }) {
       <Hero hero={hero} social={contact as Social} />
 
       {/* About Section */}
-      <About about={about} />
+      <About about={about} githubData={githubData} />
 
       {/* Skills Section */}
       <Skills skills={stacks} />
@@ -31,7 +31,7 @@ export default function Component({ props }: { props: Home }) {
       <Projects projects={projects} />
 
       {/* Experience Section */}
-      <Experience experiences={timeline} />
+      <Experience experiences={timeline} githubData={githubData} />
       <Footer social={contact as Social} />
     </div>
   )

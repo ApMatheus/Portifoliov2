@@ -4,7 +4,7 @@ import { AnimatedCard } from "../animated-card";
 import Image from "next/image";
 import type { About } from "@/types/portifolio";
 
-export default function About({ about }: { about: About }) {
+export default function About({ about, githubData }: { about: About, githubData: number }) {
   const { title, img, alt, title_description, description } = about;
   return (
     <section id="about" className="py-20 px-4 pt-32 relative z-10">
@@ -60,12 +60,12 @@ export default function About({ about }: { about: About }) {
                 {/* Stats */}
                 <div className="grid grid-cols-3 gap-4 mt-8">
                   {[
-                    { value: "5+", label: "Anos de Experiência" },
-                    { value: "50+", label: "Projetos Concluídos" },
+                    { value: "4+", label: "Anos de Experiência" },
+                    { value: githubData, label: "Contribuições no ultimo ano" },
                     { value: "10+", label: "Tecnologias" },
                   ].map((stat, index) => (
                     <AnimatedCard key={index} direction="scale" delay={600 + index * 100}>
-                      <div className="text-center p-4 bg-slate-700/30 rounded-lg border border-cyan-500/10">
+                      <div className="text-center p-4 bg-slate-700/30 rounded-lg border border-cyan-500/10 h-full">
                         <div className="text-2xl font-bold text-cyan-400">{stat.value}</div>
                         <div className="text-sm text-slate-400">{stat.label}</div>
                       </div>

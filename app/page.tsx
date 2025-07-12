@@ -16,7 +16,16 @@ export default async function Page() {
       ? 'http://localhost:3000'
       : process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
 
-    const response = await fetch(`${baseUrl}/api/cms/gethome`);
+    const [githubResponse, response] = await Promise.all([
+      fetch(`${baseUrl}/api/github`),
+      fetch(`${baseUrl}/api/cms/gethome`),
+    ]);
+
+    if (!githubResponse.ok) {
+      throw new Error(`HTTP error! status: ${githubResponse.status}`);
+    }
+
+    const githubData = await githubResponse.json();
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -28,7 +37,7 @@ export default async function Page() {
       return <div>Erro: Dados não encontrados</div>;
     }
 
-    return <Component props={data.data} />;
+    return <Component props={data.data} githubData={githubData.data} />;
   } catch (error) {
     console.error('Erro ao carregar dados:', error);
     return <div>Erro ao carregar a página</div>;

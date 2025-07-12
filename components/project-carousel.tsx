@@ -40,12 +40,12 @@ export function ProjectCarousel({ projects }: { projects: ProjectItem[] }) {
     return () => clearInterval(interval)
   }, [isAutoPlaying, maxIndex])
 
-  const goToSlide = (index: number) => {
-    setCurrentIndex(Math.min(index, maxIndex))
-    setIsAutoPlaying(false)
-    // Resume auto-play after 10 seconds
-    setTimeout(() => setIsAutoPlaying(true), 10000)
-  }
+  // const goToSlide = (index: number) => {
+  //   setCurrentIndex(Math.min(index, maxIndex))
+  //   setIsAutoPlaying(false)
+  //   // Resume auto-play after 10 seconds
+  //   setTimeout(() => setIsAutoPlaying(true), 10000)
+  // }
 
   const goToPrevious = () => {
     setCurrentIndex((prevIndex) => Math.max(0, prevIndex - 1))

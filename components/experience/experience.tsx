@@ -3,10 +3,10 @@
 import { AnimatedCard } from "../animated-card";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
 import { Badge } from "../ui/badge";
-import { Code, Terminal } from "lucide-react";
+import { Terminal } from "lucide-react";
 import { Timeline } from "@/types/portifolio";
 
-export default function Experience({ experiences }: { experiences: Timeline }) {
+export default function Experience({ experiences, githubData }: { experiences: Timeline, githubData: number }) {
   const { title, feature } = experiences;
 
   return (
@@ -95,9 +95,9 @@ export default function Experience({ experiences }: { experiences: Timeline }) {
         {/* Career Highlights */}
         <div className="mt-16 grid md:grid-cols-3 gap-6">
           {[
-            { value: "5+", label: "Anos de Experiência" },
+            { value: "4+", label: "Anos de Experiência" },
             { value: "3", label: "Empresas" },
-            { value: "50+", label: "Projetos Entregues" },
+            { value: githubData, label: "Contribuições no ultimo ano" },
           ].map((highlight, index) => (
             <AnimatedCard key={index} direction="scale" delay={index * 150}>
               <Card className="bg-slate-800/30 border-cyan-500/20 text-center p-6">
