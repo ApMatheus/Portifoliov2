@@ -17,8 +17,8 @@ export default async function Page() {
       : process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
 
     const [githubResponse, response] = await Promise.all([
-      fetch(`${baseUrl}/api/github`),
-      fetch(`${baseUrl}/api/cms/gethome`),
+      fetch(`${baseUrl}/api/github`, { next: { revalidate: 3600 } }),
+      fetch(`${baseUrl}/api/cms/gethome`, { next: { revalidate: 3600 } }),
     ]);
 
     if (!githubResponse.ok) {

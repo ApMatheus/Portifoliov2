@@ -24,9 +24,9 @@ export async function GET() {
     });
 
     const gqlData = await gqlRes.json();
-    const contributions = gqlData.data.viewer.contributionsCollection.contributionCalendar.totalContributions;
+    const data = gqlData.data.viewer.contributionsCollection.contributionCalendar.totalContributions;
 
-    return NextResponse.json({ data: contributions, status: 200 });
+    return NextResponse.json({ data, status: 200 });
   } catch (error) {
     console.error("Erro ao buscar dados do GitHub:", error);
     return NextResponse.json({ data: error, status: 500 });

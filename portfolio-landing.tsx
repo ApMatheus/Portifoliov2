@@ -11,7 +11,6 @@ import Footer from "./components/footer/footer"
 
 export default function Component({ props, githubData }: { props: Home, githubData: number }) {
   const { hero, about, stacks, projects, timeline, contact } = props.object.metadata
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 relative overflow-hidden">
       {/* Animated Background */}
