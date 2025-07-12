@@ -3,7 +3,7 @@ import Component from "../portfolio-landing"
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Dev Matheus Aparecido - Portfolio",
+  title: "Dev Matheus Aparecido - Portifolio",
   description: "Portfolio de projetos de desenvolvimento web e mobile",
   icons: {
     icon: "/icon.svg",
